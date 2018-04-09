@@ -19,7 +19,9 @@ namespace Telefonia
         {
             if( e.KeyChar == 13)
             {
+
                 TelefonoDatos telefonoDatos = new TelefonoDatos(txtbTelefono.Text, txtbLugar.Text);
+                //Se inserta un elemento al DataGridView
                 dgvTelefonia.Rows.Add(telefonoDatos.telefono, telefonoDatos.lugar);
             }
             
