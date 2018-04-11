@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvTelefonia = new System.Windows.Forms.DataGridView();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtbTelefono = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtbLugar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiempollamadaEvento = new System.Windows.Forms.Timer(this.components);
+            this.tllamada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnColgar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefonia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,12 +49,27 @@
             this.dgvTelefonia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTelefonia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Telefono,
-            this.Lugar});
-            this.dgvTelefonia.Location = new System.Drawing.Point(77, 128);
+            this.Lugar,
+            this.tllamada});
+            this.dgvTelefonia.Location = new System.Drawing.Point(27, 117);
             this.dgvTelefonia.Name = "dgvTelefonia";
             this.dgvTelefonia.ReadOnly = true;
-            this.dgvTelefonia.Size = new System.Drawing.Size(240, 150);
+            this.dgvTelefonia.Size = new System.Drawing.Size(346, 150);
             this.dgvTelefonia.TabIndex = 0;
+            // 
+            // Telefono
+            // 
+            this.Telefono.Frozen = true;
+            this.Telefono.HeaderText = "Teléfono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            // 
+            // Lugar
+            // 
+            this.Lugar.Frozen = true;
+            this.Lugar.HeaderText = "Lugar";
+            this.Lugar.Name = "Lugar";
+            this.Lugar.ReadOnly = true;
             // 
             // txtbTelefono
             // 
@@ -85,25 +104,33 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Lugar";
             // 
-            // Telefono
+            // tiempollamadaEvento
             // 
-            this.Telefono.Frozen = true;
-            this.Telefono.HeaderText = "Teléfono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
+            this.tiempollamadaEvento.Tick += new System.EventHandler(this.tiempollamadaEvento_Tick);
             // 
-            // Lugar
+            // tllamada
             // 
-            this.Lugar.Frozen = true;
-            this.Lugar.HeaderText = "Lugar";
-            this.Lugar.Name = "Lugar";
-            this.Lugar.ReadOnly = true;
+            this.tllamada.Frozen = true;
+            this.tllamada.HeaderText = "Duración Llamada";
+            this.tllamada.Name = "tllamada";
+            this.tllamada.ReadOnly = true;
+            // 
+            // btnColgar
+            // 
+            this.btnColgar.Location = new System.Drawing.Point(371, 60);
+            this.btnColgar.Name = "btnColgar";
+            this.btnColgar.Size = new System.Drawing.Size(75, 23);
+            this.btnColgar.TabIndex = 3;
+            this.btnColgar.Text = "Colgar";
+            this.btnColgar.UseVisualStyleBackColor = true;
+            this.btnColgar.Click += new System.EventHandler(this.btnColgar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 364);
+            this.ClientSize = new System.Drawing.Size(495, 364);
+            this.Controls.Add(this.btnColgar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtbLugar);
@@ -126,6 +153,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtbLugar;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tllamada;
+        private System.Windows.Forms.Timer tiempollamadaEvento;
+        private System.Windows.Forms.Button btnColgar;
     }
 }
 
